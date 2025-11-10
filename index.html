@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel='icon' type='image/png' href='b.png' />
+  <link id="dynamic-favicon" rel="icon" type="image/png" href="t.png">
+  <title>Tools Books</title>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+
+<body>
+  <main>
+    <h1><a href="#">Tools Books</a> is a publishing format based in Berlin, Germany. Orders are
+      shipped
+      within a few days, but please allow up to two weeks for delivery. Book shadows adjust
+      to your local sunlight <span id="local-meta"></span>.</h1>
+    <div class="products">
+      <div class="product" data-id="1" data-price="12.00">
+        <div class="visual">
+          <div class="flip-card">
+            <div class="flip-inner">
+              <div class="flip-face flip-front">
+                <a href="ppp.html"><img src="img/ppp_cover.png"></a>
+              </div>
+              <div class="flip-face flip-back">
+                <a href="ppp.html"><img src="img/ppp_back.png"></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="text">
+          <h4>N°1</h4>
+          <h3>Props Promising Prompts<br>Lizzy Ellbrück &
+            Louise Raspé</h3>
+          <h2>New</h2>
+          <p>Props Promising Prompts is a piece built in fragments: obstacles, niche wanderers, props,
+            fillers,
+            flourishes, and wandering eyes. Figures appear as embedded characters in a spatial narrative,
+            thinking in
+            ciphers, speaking in curlicues, writing in parentheses. They are not theatrical in that sense,
+            yet they
+            emerge at the edge of a drama — within footnotes, in the traces of scenes and marginalia.</p>
+          <p>Paperback (DE/EN)<br>
+            11 × 18 cm, 74 pages<br>
+            14 b/w images<br>
+            First Edition, 2025<br>
+            ISBN 978-3-911828-08-6<br>
+          </p>
+          <details>
+            <summary>About the authors</summary>
+            <p>Lizzy Ellbrück and Louisa Raspé are artists, authors, designers, dramaturges, scenographers,
+              accomplices
+              and friends. They work artistically and speculatively, preferably in dialogue. Their studies
+              and shared
+              interests have fostered a rich and evolving complicity — an intensity they seek to deepen in
+              Conceptual
+              Conversations, meandering through new stories that unfold in several directions at once.</p>
+          </details>
+          <details>
+            <summary>Further reading</summary>
+            <a href="https://www.instagram.com/p/DQWOUUvDHwY/" target="_blank">Conceptual Conversation #12</a>
+          </details>
+          <p>€ 12.00</p>
+          <div class="cart-btn">Add to Cart</div>
+        </div>
+      </div>
+
+      <div class="product" data-id="11" data-price="14.00">
+        <div class="visual">
+          <div class="flip-card">
+            <div class="flip-inner">
+              <div class="flip-face flip-front">
+                <img src="img/museum-cafes-companion.png">
+              </div>
+              <div class="flip-face flip-back">
+                <img src="img/museum-cafes-companion_back.png">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="text">
+          <h4>N°2</h4>
+          <h3>After the Show: 100 Art Museums reviewed<br><em>A Pocket Guide</em></h3>
+          <p>After the Show reimagines the museum visit through its most habitual ritual: the post-exhibition coffee.
+            This pocket-sized guide reviews one hundred museum cafés around the world—from the WMF bean-to-cup brews
+            of major institutions to the perfectly pulled espressos of small-town collections. Part travelogue, part
+            institutional critique, this publication maps (and ranks) the soft infrastructure of the art world.</p>
+          <p>Paperback (EN)<br>
+            11 × 17.5 cm, 208 pages<br>
+            RISO printed inlay<br>
+            First Edition, 2026<br>
+            ISBN 978-3-911828-09-3<br>
+          </p>
+          <p>€ 14.00</p>
+        </div>
+      </div>
+    </div>
+    <section>
+      <p>Publications initiated and/or designed with Tools Books:</p>
+      <ul>
+        <li><a>FARM Group: Works in the open field, ISBN 978-3-911828-04-8</a></li>
+        <li><a>Making Something from Some Things by Lizzy Ellbrück, Accidental Interest Books (Kassel/Offenbach
+            a.M.), ISBN 978-3-982471-04-4</a></li>
+        <li><a>TTP by Hayahisa Tomiyasu, MACK Books (London), ISBN 978-1-912339-24-2</a></li>
+      </ul>
+    </section>
+    <section class="info">
+      <p>Tools Books is run and designed by Lukas Marstaller. Please write us for local pickup, student discounts
+        and bookshop deals.</p>
+      <p>Tools Books<br>
+        Atelier EG links<br>
+        Obentrautstr. 71<br>
+        10963 Berlin</p>
+      <p>Open by appointment<br>
+        <a href="mailto:mail@lukasmarstaller.com">E-mail</a>
+    </section>
+    </p>
+  </main>
+
+  <div id="checkout-container">
+    <div id="cart-widget">
+      <div class="cart-summary">Cart</div>
+      <div class="shipping-options">
+        <span>Ship to</span>
+        <label>
+          <input type="checkbox" class="shipping-checkbox" value="5">DE <span class="shipping-rate">(€
+            5.00)</span>
+        </label>
+        <label>
+          <input type="checkbox" class="shipping-checkbox" value="6.50">EU <span class="shipping-rate">(€
+            6.50)</span>
+        </label>
+        <label>
+          <input type="checkbox" class="shipping-checkbox" value="12">World <span class="shipping-rate">(€
+            12.00)</span>
+        </label>
+        <button id="order-button" disabled>Order</button>
+      </div>
+    </div>
+  </div>
+
+
+  <form id="paypal-form" action="https://www.paypal.com/cgi-bin/webscr" method="post" style="display: none;">
+    <input type="hidden" name="cmd" value="_cart">
+    <input type="hidden" name="upload" value="1">
+    <input type="hidden" name="business" value="lukas.marstaller@gmail.com">
+    <input type="hidden" name="currency_code" value="EUR">
+    <input type="hidden" name="return" value="https://booooks.org/success.html">
+    <input type="hidden" name="cancel_return" value="https://booooks.org/cancel.html">
+    <input type="hidden" name="rm" value="2">
+  </form>
+
+  <script src="assets/app.js"></script>
+</body>
+
+</html>
