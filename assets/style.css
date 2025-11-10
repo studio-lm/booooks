@@ -323,6 +323,11 @@
      font-size: 20px;
      line-height: 24px;
    }
+
+   .product .flip-face img {
+      max-height: 100%;
+      width: 70vw;
+ }
     
    .shipping-rate {
      display: none;
