@@ -332,7 +332,14 @@
       });
 
       img.addEventListener('mouseleave', () => {
-        img.src = img.dataset.front;
+        if (desktopCoverHover.matches) img.src = img.dataset.front;
+      });
+
+      img.addEventListener('click', () => {
+        if (desktopCoverHover.matches) return;
+        img.src = img.getAttribute('src') === img.dataset.back
+          ? img.dataset.front
+          : img.dataset.back;
       });
     });
 
