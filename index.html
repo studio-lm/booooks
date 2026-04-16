@@ -321,40 +321,23 @@
 
 
   <script>
-    const desktopCoverHover = window.matchMedia('(min-width: 993px) and (hover: hover) and (pointer: fine)');
     document.querySelectorAll('img[data-back]').forEach(img => {
       const front = img.dataset.front || img.getAttribute('src');
       img.dataset.front = front;
       new Image().src = img.dataset.back;
 
-      img.addEventListener('mouseenter', () => {
-        if (desktopCoverHover.matches) img.src = img.dataset.back;
+      img.addEventListener('pointerenter', () => {
+        img.src = img.dataset.back;
       });
 
-      img.addEventListener('mouseleave', () => {
-        if (desktopCoverHover.matches) img.src = img.dataset.front;
+      img.addEventListener('pointerleave', () => {
+        img.src = img.dataset.front;
       });
 
-      img.addEventListener('click', () => {
-        if (desktopCoverHover.matches) return;
-        img.src = img.getAttribute('src') === img.dataset.back
-          ? img.dataset.front
-          : img.dataset.back;
+      img.addEventListener('pointercancel', () => {
+        img.src = img.dataset.front;
       });
     });
-
-    function resetCoverHover(e) {
-      if (!e.matches) {
-        document.querySelectorAll('img[data-back]').forEach(img => {
-          img.src = img.dataset.front;
-        });
-      }
-    }
-    if (desktopCoverHover.addEventListener) {
-      desktopCoverHover.addEventListener('change', resetCoverHover);
-    } else {
-      desktopCoverHover.addListener(resetCoverHover);
-    }
 
     // ===== ab hier bestehendes Shop-Script + Persistenz (24h) =====
 
