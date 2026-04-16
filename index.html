@@ -273,19 +273,19 @@
         <div class="shipping-options">
           <span>Ship to</span>
           <label>
-            <input type="checkbox" class="shipping-checkbox" value="5">DE <span class="shipping-rate">(€
+            <input type="checkbox" class="shipping-checkbox" value="5" data-shipping-label="Shipping DE">DE <span class="shipping-rate">(€
               5.00)</span>
           </label>
           <label>
-            <input type="checkbox" class="shipping-checkbox" value="6.50">EU <span class="shipping-rate">(€
+            <input type="checkbox" class="shipping-checkbox" value="6.50" data-shipping-label="Shipping EU">EU <span class="shipping-rate">(€
               6.50)</span>
           </label>
           <label>
-            <input type="checkbox" class="shipping-checkbox" value="12">World <span class="shipping-rate">(€
+            <input type="checkbox" class="shipping-checkbox" value="12" data-shipping-label="Shipping World">World <span class="shipping-rate">(€
               12.00)</span>
           </label>
           <label>
-            <input type="checkbox" class="shipping-checkbox" value="0">Pickup (free)
+            <input type="checkbox" class="shipping-checkbox" value="0" data-shipping-label="Pickup">Pickup (free)
           </label>
           <div>
             <button id="order-button" disabled>Order</button>
@@ -496,8 +496,7 @@
       }
     }
 
-    // Build the PayPal form with cart items and shipping fee.
-    // The shipping fee is added using PayPal's "shipping_cart" variable.
+    // Build the PayPal form with cart items and the selected shipping option.
     function buildPaypalForm() {
       const form = document.getElementById('paypal-form');
       // Remove previous product inputs if any
@@ -533,21 +532,28 @@
           index++;
         }
       }
-      // Add shipping fee using PayPal's "shipping_cart" variable for the overall order
-      const shippingCheckboxes = document.querySelectorAll('.shipping-checkbox');
-      let shippingFee = 0;
-      shippingCheckboxes.forEach(chk => {
-        if (chk.checked) {
-          shippingFee = parseFloat(chk.value) || 0;
-        }
-      });
+      const shippingCheckbox = Array.from(document.querySelectorAll('.shipping-checkbox'))
+        .find(chk => chk.checked);
+      const shippingFee = shippingCheckbox ? parseFloat(shippingCheckbox.value) || 0 : 0;
       if (shippingFee > 0) {
-        const shippingInput = document.createElement('input');
-        shippingInput.type = 'hidden';
-        shippingInput.name = 'shipping_cart';
-        shippingInput.value = shippingFee.toFixed(2);
-        shippingInput.classList.add('product-input');
-        form.appendChild(shippingInput);
+        const shippingNameInput = document.createElement('input');
+        shippingNameInput.type = 'hidden';
+        shippingNameInput.name = 'item_name_' + index;
+        shippingNameInput.value = shippingCheckbox.dataset.shippingLabel || 'Shipping';
+        shippingNameInput.classList.add('product-input');
+        form.appendChild(shippingNameInput);
+        const shippingAmountInput = document.createElement('input');
+        shippingAmountInput.type = 'hidden';
+        shippingAmountInput.name = 'amount_' + index;
+        shippingAmountInput.value = shippingFee.toFixed(2);
+        shippingAmountInput.classList.add('product-input');
+        form.appendChild(shippingAmountInput);
+        const shippingQuantityInput = document.createElement('input');
+        shippingQuantityInput.type = 'hidden';
+        shippingQuantityInput.name = 'quantity_' + index;
+        shippingQuantityInput.value = '1';
+        shippingQuantityInput.classList.add('product-input');
+        form.appendChild(shippingQuantityInput);
       }
     }
 
