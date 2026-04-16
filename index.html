@@ -5,36 +5,226 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel='icon' type='image/png' href='b.png' />
-  <link id="dynamic-favicon" rel="icon" type="image/png" href="t.png">
   <title>Tools Books</title>
-  <link rel="stylesheet" href="assets/style.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body,
+    html {
+      width: 100%;
+      height: 100%;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      font-size: 16px;
+      line-height: 19px;
+    }
+
+    main {
+      padding: 20px;
+      max-width: 480px;
+    }
+
+    img {
+      max-width: 100%;
+      width: 220px;
+      display: block;
+    }
+
+    details:first-of-type {
+      margin-top: 20px;
+    }
+
+    details:last-of-type {
+      margin-bottom: 20px;
+    }
+
+    summary {
+      cursor: pointer;
+    }
+
+    .products {
+      display: block;
+    }
+
+    .product {
+      width: 100%;
+      margin-bottom: 40px;
+    }
+
+    .cart-btn {
+      display: inline-block;
+      user-select: none;
+      cursor: pointer;
+      color: #07F;
+    }
+
+    .cart-btn--disabled {
+      color: #BBB;
+      cursor: default;
+      pointer-events: none;
+    }
+
+    .cart-btn span {
+      display: inline-block;
+      cursor: pointer;
+      margin: 0 5px;
+      position: relative;
+    }
+
+    .cart-btn span.minus {
+      top: -1px;
+    }
+
+    h1,
+    h3 {
+      font-size: inherit;
+      font-weight: normal;
+    }
+
+    h1 {
+      margin-bottom: 40px;
+    }
+
+    h3 {
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+
+    a {
+      color: #F00;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    a:hover {
+      color: #000;
+    }
+
+    p+p {
+      margin-top: 20px;
+    }
+
+    #checkout-container {
+      background: #FF0;
+      padding: 10px;
+      margin-bottom: 20px;
+    }
+
+    .cart-empty, .order-hint {
+      font-style: italic;
+    }
+
+    .cart-heading {
+      margin-bottom: 20px;
+    }
+
+    .cart-row {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 10px;
+      border-bottom: 1px solid #000;
+      padding-bottom: 5px;
+      margin-bottom: 5px;
+    }
+
+    .cart-price {
+      text-align: right;
+      white-space: nowrap;
+    }
+
+    #cart-widget .shipping-options {
+      display: none;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 5px;
+      margin-top: 20px;
+    }
+
+    #checkout-container.has-items .shipping-options {
+      display: flex;
+    }
+
+    #cart-widget .shipping-options label {
+      cursor: pointer;
+    }
+
+    #cart-widget .shipping-options input[type="checkbox"] {
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      width: 15px;
+      height: 15px;
+      border: 1px solid #000;
+      border-radius: 50%;
+      margin-top: 2px;
+      margin-right: 10px;
+      cursor: pointer;
+      vertical-align: top;
+    }
+
+    #cart-widget .shipping-options input[type="checkbox"]:checked {
+      background-color: #000;
+    }
+
+    #cart-widget .shipping-options button {
+      font-size: inherit;
+      font-family: inherit;
+      background: none;
+      border: none;
+      color: #000;
+      margin-top: 20px;
+    }
+  </style>
 </head>
 
 <body>
   <main>
-    <h1><a href="#">Tools Books</a> is a publishing format based in Berlin, Germany. Orders are
-      shipped
-      within a few days, but please allow up to two weeks for delivery. Book shadows adjust
-      to your local sunlight <span id="local-meta"></span>.</h1>
+    <h1>Tools Books</h1>
     <div class="products">
-      <div class="product" data-id="1" data-price="12.00">
-        <div class="visual">
-          <div class="flip-card">
-            <div class="flip-inner">
-              <div class="flip-face flip-front">
-                <a href="ppp.html"><img src="img/ppp_cover.png"></a>
-              </div>
-              <div class="flip-face flip-back">
-                <a href="ppp.html"><img src="img/ppp_back.png"></a>
-              </div>
-            </div>
-          </div>
-        </div>
+      <div class="product" data-id="2" data-price="30.00">
+        <img src="Speaking_Corners_front.jpg" data-front="Speaking_Corners_front.jpg"
+          data-back="Speaking_Corners_back.jpg">
         <div class="text">
-          <h4>N°1</h4>
-          <h3>Props Promising Prompts<br>Lizzy Ellbrück &
-            Louisa Raspé</h3>
-          <h2>New</h2>
+          <h3>Speaking Corners<br>Lizzy Ellbrück</h3>
+          <p>A series of (prose) miniatures, that explore the semantics of margins and the tensions within peripheral phenomena—spatial, material, or metaphorical—and their agency as characters for wording.</p>
+          <p>Hardcover (EN)<br>
+            24 × 32 cm, 28 pages<br>
+            1 b/w image<br>
+            First Edition, 2026<br>
+            978-3-911828-13-0<br>
+          </p>
+          <details>
+            <summary>About the author</summary>
+            <p>Lizzy Ellbrück (b. 1990, Ulm, DE) lives and works in Berlin. She studied at TU Berlin,
+              UdK Berlin, and HfG Karlsruhe. In 2023, she received
+              a scholarship from the State Graduate Funding Program, and in 2024/25 she was a resident at the Cité
+              internationale des arts in Paris. She also participated in the Kunstbüro mentoring program in tandem with
+              Sofia Hultén. Her works have been shown in solo exhibitions at venues including the Badischer Kunstverein
+              Karlsruhe, the ZKM Pavilion, and the Kunstverein Bruchsal (with Johanna Schäfer), as well as in
+              international group exhibitions.</p>
+          </details>
+          <details>
+            <summary>Further reading</summary>
+            <a target="_blank" href="https://ccfa-ka.de/de/kultur/lizzy-ellbrueck">A corner, a marginal figure, a
+              spatial ligature, a dust catcher, an edgy witness, for niche wanderers at CCFA Karlsruhe</a>
+          </details>
+          <p>€ 30.00</p>
+          <div class="cart-btn">Add to Cart</div>
+        </div>
+      </div>
+
+      <div class="product" data-id="1" data-price="12.00">
+        <img src="ppp_cover.png" data-front="ppp_cover.png" data-back="ppp_cover2.png" alt="Front of Product 1">
+
+        <div class="text">
+          <h3>Props Promising Prompts<br>Lizzy Ellbrück &amp;
+            Louise Raspé</h3>
           <p>Props Promising Prompts is a piece built in fragments: obstacles, niche wanderers, props,
             fillers,
             flourishes, and wandering eyes. Figures appear as embedded characters in a spatial narrative,
@@ -60,52 +250,42 @@
           </details>
           <details>
             <summary>Further reading</summary>
-            <a href="https://www.instagram.com/p/DQWOUUvDHwY/" target="_blank">Conceptual Conversation #12</a>
+            <a target="_blank"
+              href="https://ceecee.cc/en/geht-so-designdiskurs-die-conceptual-conversations-von-tina-roeder/">Conceptual
+              Conversation #12</a>
           </details>
           <p>€ 12.00</p>
           <div class="cart-btn">Add to Cart</div>
         </div>
       </div>
-
-      <div class="product" data-id="11" data-price="14.00">
-        <div class="visual">
-          <div class="flip-card">
-            <div class="flip-inner">
-              <div class="flip-face flip-front">
-                <img src="img/museum-cafes-companion.png">
-              </div>
-              <div class="flip-face flip-back">
-                <img src="img/museum-cafes-companion_back.png">
-              </div>
-            </div>
+    </div>
+    <div id="checkout-container">
+      <div id="cart-widget">
+        <div class="cart-summary">Cart</div>
+        <div class="shipping-options">
+          <span>Ship to</span>
+          <label>
+            <input type="checkbox" class="shipping-checkbox" value="5">DE <span class="shipping-rate">(€
+              5.00)</span>
+          </label>
+          <label>
+            <input type="checkbox" class="shipping-checkbox" value="6.50">EU <span class="shipping-rate">(€
+              6.50)</span>
+          </label>
+          <label>
+            <input type="checkbox" class="shipping-checkbox" value="12">World <span class="shipping-rate">(€
+              12.00)</span>
+          </label>
+          <label>
+            <input type="checkbox" class="shipping-checkbox" value="0">Pickup (free)
+          </label>
+          <div>
+            <button id="order-button" disabled>Order</button>
+            <span id="order-hint" class="order-hint">Please select a shipping option</span>
           </div>
-        </div>
-        <div class="text">
-          <h4>N°2</h4>
-          <h3>After the Show: 100 Art Museums reviewed<br><em>A Pocket Guide</em></h3>
-          <p>After the Show reimagines the museum visit through its most habitual ritual: the post-exhibition coffee.
-            This pocket-sized guide reviews one hundred museum cafés around the world—from the WMF bean-to-cup brews
-            of major institutions to the perfectly pulled espressos of small-town collections. Part travelogue, part
-            institutional critique, this publication maps (and ranks) the soft infrastructure of the art world.</p>
-          <p>Paperback (EN)<br>
-            11 × 17.5 cm, 208 pages<br>
-            RISO printed inlay<br>
-            First Edition, 2026<br>
-            ISBN 978-3-911828-09-3<br>
-          </p>
-          <p>€ 14.00</p>
         </div>
       </div>
     </div>
-    <section>
-      <p>Publications initiated and/or designed with Tools Books:</p>
-      <ul>
-        <li><a>FARM Group: Works in the open field, ISBN 978-3-911828-04-8</a></li>
-        <li><a>Making Something from Some Things by Lizzy Ellbrück, Accidental Interest Books (Kassel/Offenbach
-            a.M.), ISBN 978-3-982471-04-4</a></li>
-        <li><a>TTP by Hayahisa Tomiyasu, MACK Books (London), ISBN 978-1-912339-24-2</a></li>
-      </ul>
-    </section>
     <section class="info">
       <p>Tools Books is run and designed by Lukas Marstaller. Please write us for local pickup, student discounts
         and bookshop deals.</p>
@@ -114,45 +294,344 @@
         Obentrautstr. 71<br>
         10963 Berlin</p>
       <p>Open by appointment<br>
-        <a href="mailto:mail@lukasmarstaller.com">E-mail</a>
+        <a target="_blank" href="mailto:mail@lukasmarstaller.com">E-mail</a>, <a target="_blank"
+          href="https://www.instagram.com/lukasmarstaller/">Instagram</a>
+      </p>
     </section>
-    </p>
   </main>
-
-  <div id="checkout-container">
-    <div id="cart-widget">
-      <div class="cart-summary">Cart</div>
-      <div class="shipping-options">
-        <span>Ship to</span>
-        <label>
-          <input type="checkbox" class="shipping-checkbox" value="5">DE <span class="shipping-rate">(€
-            5.00)</span>
-        </label>
-        <label>
-          <input type="checkbox" class="shipping-checkbox" value="6.50">EU <span class="shipping-rate">(€
-            6.50)</span>
-        </label>
-        <label>
-          <input type="checkbox" class="shipping-checkbox" value="12">World <span class="shipping-rate">(€
-            12.00)</span>
-        </label>
-        <button id="order-button" disabled>Order</button>
-      </div>
-    </div>
-  </div>
-
 
   <form id="paypal-form" action="https://www.paypal.com/cgi-bin/webscr" method="post" style="display: none;">
     <input type="hidden" name="cmd" value="_cart">
     <input type="hidden" name="upload" value="1">
     <input type="hidden" name="business" value="lukas.marstaller@gmail.com">
     <input type="hidden" name="currency_code" value="EUR">
-    <input type="hidden" name="return" value="https://booooks.org/success.html">
-    <input type="hidden" name="cancel_return" value="https://booooks.org/cancel.html">
+    <input type="hidden" name="return" value="https://toolsbooks.com/success.html">
+    <input type="hidden" name="cancel_return" value="https://toolsbooks.com/cancel.html">
     <input type="hidden" name="rm" value="2">
   </form>
 
-  <script src="assets/app.js"></script>
+
+  <script>
+    const desktopCoverHover = window.matchMedia('(min-width: 993px) and (hover: hover) and (pointer: fine)');
+    document.querySelectorAll('img[data-back]').forEach(img => {
+      const front = img.dataset.front || img.getAttribute('src');
+      img.dataset.front = front;
+      new Image().src = img.dataset.back;
+
+      img.addEventListener('mouseenter', () => {
+        if (desktopCoverHover.matches) img.src = img.dataset.back;
+      });
+
+      img.addEventListener('mouseleave', () => {
+        img.src = img.dataset.front;
+      });
+    });
+
+    function resetCoverHover(e) {
+      if (!e.matches) {
+        document.querySelectorAll('img[data-back]').forEach(img => {
+          img.src = img.dataset.front;
+        });
+      }
+    }
+    if (desktopCoverHover.addEventListener) {
+      desktopCoverHover.addEventListener('change', resetCoverHover);
+    } else {
+      desktopCoverHover.addListener(resetCoverHover);
+    }
+
+    // ===== ab hier bestehendes Shop-Script + Persistenz (24h) =====
+
+    // Object to hold quantities for each product (keyed by product id)
+    const cart = {};
+
+    // ===== Persistenz: 24h Cart-Storage =====
+    const STORAGE_KEY = 'toolsbooks_cart_v1';
+    const CART_TTL_MS = 24 * 60 * 60 * 1000; // 24h
+
+    function getSelectedShipping() {
+      const chk = Array.from(document.querySelectorAll('.shipping-checkbox')).find(c => c.checked);
+      return chk ? chk.value : null;
+    }
+
+    function updateOrderState(hasShipping) {
+      const orderButton = document.getElementById('order-button');
+      const orderHint = document.getElementById('order-hint');
+      orderButton.disabled = !hasShipping;
+      orderButton.style.color = hasShipping ? "#0C0" : "";
+      orderButton.style.cursor = hasShipping ? "pointer" : "default";
+      orderHint.hidden = hasShipping;
+    }
+
+    function setSelectedShipping(value) {
+      const boxes = document.querySelectorAll('.shipping-checkbox');
+      let found = false;
+      boxes.forEach(b => {
+        b.checked = (Number(b.value) === Number(value));
+        if (b.checked) found = true;
+      });
+      updateOrderState(found);
+    }
+
+    function persistCart() {
+      try {
+        const payload = {
+          cart,
+          shipping: getSelectedShipping(),
+          savedAt: Date.now(),
+        };
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(payload));
+      } catch (e) {
+        console.warn('Persisting cart failed:', e);
+      }
+    }
+
+    function restoreCart() {
+      try {
+        const raw = localStorage.getItem(STORAGE_KEY);
+        if (!raw) return false;
+        const data = JSON.parse(raw);
+        if (!data || typeof data !== 'object') return false;
+        const age = Date.now() - (data.savedAt || 0);
+        if (age > CART_TTL_MS) {
+          localStorage.removeItem(STORAGE_KEY); // abgelaufen
+          return false;
+        }
+        if (data.cart && typeof data.cart === 'object') {
+          for (const id in data.cart) {
+            cart[id] = Number(data.cart[id]) || 0;
+          }
+        }
+        if (data.shipping != null) setSelectedShipping(data.shipping);
+        return true;
+      } catch (e) {
+        console.warn('Restoring cart failed:', e);
+        return false;
+      }
+    }
+
+    function clearCartStorage() {
+      try { localStorage.removeItem(STORAGE_KEY); } catch { }
+    }
+
+    function escapeHtml(value) {
+      const div = document.createElement('div');
+      div.textContent = value;
+      return div.innerHTML;
+    }
+
+    function formatPrice(value) {
+      return `€${value.toFixed(2)}`;
+    }
+
+    function getProductTitle(productElem, fallback) {
+      const h3 = productElem.querySelector('h3');
+      if (!h3) return fallback;
+      const firstLine = Array.from(h3.childNodes)
+        .find(node => node.nodeType === Node.TEXT_NODE && node.textContent.trim());
+      return (firstLine ? firstLine.textContent : h3.textContent).replace(/\s+/g, ' ').trim();
+    }
+
+    function updateCartWidget() {
+      const checkoutContainer = document.getElementById('checkout-container');
+      const cartSummary = document.querySelector('#cart-widget .cart-summary');
+      const cartRows = [];
+      let totalCount = 0;
+      let subtotal = 0;
+      for (let id in cart) {
+        const qty = Number(cart[id]) || 0;
+        if (qty <= 0) continue;
+        totalCount += qty;
+        const productElem = document.querySelector('.product[data-id="' + id + '"]');
+        if (!productElem) continue; // Guard, falls Produkt entfernt wurde
+        const price = parseFloat(productElem.getAttribute('data-price')) || 0;
+        const lineTotal = qty * price;
+        const productName = getProductTitle(productElem, `Item ${id}`);
+        const label = qty > 1 ? `${qty} × ${productName}` : productName;
+        subtotal += lineTotal;
+        cartRows.push(`
+          <div class="cart-row">
+            <span>${escapeHtml(label)}</span>
+            <span class="cart-price">${formatPrice(lineTotal)}</span>
+          </div>
+        `);
+      }
+      let shippingFee = 0;
+      document.querySelectorAll('.shipping-checkbox').forEach(chk => {
+        if (chk.checked) {
+          shippingFee = parseFloat(chk.value) || 0;
+        }
+      });
+      const totalPrice = subtotal + shippingFee;
+      checkoutContainer.classList.toggle('has-items', totalCount > 0);
+      cartSummary.innerHTML = totalCount === 0
+        ? 'Cart <span class="cart-empty">No items</span>'
+        : `
+          <div class="cart-heading">Cart</div>
+          ${cartRows.join('')}
+          <div class="cart-row">
+            <span>Total</span>
+            <span class="cart-price">${formatPrice(totalPrice)}</span>
+          </div>
+        `;
+    }
+
+    // Update a product's "Add to Cart" button display
+    function updateProductButton(productElem, quantity) {
+      const btn = productElem.querySelector('.cart-btn');
+      if (!btn || btn.classList.contains('cart-btn--disabled')) return; // Guard, wenn kein echter Button
+      if (quantity > 0) {
+        btn.innerHTML = `<span class="minus">–</span> ${quantity} <span class="plus">+</span>`;
+      } else {
+        btn.textContent = 'Add to Cart';
+      }
+    }
+
+    // Build the PayPal form with cart items and shipping fee.
+    // The shipping fee is added using PayPal's "shipping_cart" variable.
+    function buildPaypalForm() {
+      const form = document.getElementById('paypal-form');
+      // Remove previous product inputs if any
+      const productInputs = form.querySelectorAll('.product-input');
+      productInputs.forEach(input => input.remove());
+      let index = 1;
+      for (let id in cart) {
+        if (cart[id] > 0) {
+          const productElem = document.querySelector('.product[data-id="' + id + '"]');
+          if (!productElem) continue;
+          const h3 = productElem.querySelector('h3');
+          const productName = h3 ? h3.innerText : `Item ${id}`;
+          const price = parseFloat(productElem.getAttribute('data-price')) || 0;
+          // Create hidden inputs for this product
+          const itemNameInput = document.createElement('input');
+          itemNameInput.type = 'hidden';
+          itemNameInput.name = 'item_name_' + index;
+          itemNameInput.value = productName;
+          itemNameInput.classList.add('product-input');
+          form.appendChild(itemNameInput);
+          const amountInput = document.createElement('input');
+          amountInput.type = 'hidden';
+          amountInput.name = 'amount_' + index;
+          amountInput.value = price.toFixed(2);
+          amountInput.classList.add('product-input');
+          form.appendChild(amountInput);
+          const quantityInput = document.createElement('input');
+          quantityInput.type = 'hidden';
+          quantityInput.name = 'quantity_' + index;
+          quantityInput.value = cart[id];
+          quantityInput.classList.add('product-input');
+          form.appendChild(quantityInput);
+          index++;
+        }
+      }
+      // Add shipping fee using PayPal's "shipping_cart" variable for the overall order
+      const shippingCheckboxes = document.querySelectorAll('.shipping-checkbox');
+      let shippingFee = 0;
+      shippingCheckboxes.forEach(chk => {
+        if (chk.checked) {
+          shippingFee = parseFloat(chk.value) || 0;
+        }
+      });
+      if (shippingFee > 0) {
+        const shippingInput = document.createElement('input');
+        shippingInput.type = 'hidden';
+        shippingInput.name = 'shipping_cart';
+        shippingInput.value = shippingFee.toFixed(2);
+        shippingInput.classList.add('product-input');
+        form.appendChild(shippingInput);
+      }
+    }
+
+    // Ensure only one shipping checkbox is selected at a time and handle deselection
+    document.querySelectorAll('.shipping-checkbox').forEach(chk => {
+      chk.addEventListener('change', function () {
+        // Wenn diese Checkbox gerade aktiviert wurde, alle anderen deaktivieren
+        if (this.checked) {
+          document.querySelectorAll('.shipping-checkbox').forEach(otherChk => {
+            if (otherChk !== this) otherChk.checked = false;
+          });
+        } else {
+          // Wenn dieselbe Checkbox wieder abgewählt wurde -> alle sind false
+          this.checked = false;
+        }
+
+        // Prüfen, ob aktuell irgendeine Versandoption aktiv ist
+        const anyChecked = Array.from(document.querySelectorAll('.shipping-checkbox'))
+          .some(cb => cb.checked);
+
+        updateOrderState(anyChecked);
+
+        // Cart neu berechnen & speichern
+        updateCartWidget();
+        persistCart();
+      });
+    });
+
+
+    // Initialize product event listeners for add/plus/minus actions
+    // WICHTIG: Nur echte .product mit data-id berücksichtigen
+    document.querySelectorAll('.product[data-id]').forEach(product => {
+      const id = product.getAttribute('data-id');
+      cart[id] = cart[id] || 0; // initialize quantity, falls aus Storage nicht vorhanden
+
+      // Button holen oder Platzhalter erzeugen, falls fehlend
+      let btn = product.querySelector('.cart-btn');
+      if (!btn) {
+        const textWrap = product.querySelector('.text') || product;
+        const placeholder = document.createElement('div');
+        placeholder.className = 'cart-btn cart-btn--disabled';
+        placeholder.textContent = 'Available soon';
+        textWrap.appendChild(placeholder);
+        btn = placeholder;
+      }
+
+      // Nur Listener setzen, wenn Button nicht disabled ist
+      if (!btn.classList.contains('cart-btn--disabled')) {
+        btn.addEventListener('click', function (event) {
+          if ((cart[id] || 0) === 0) {
+            cart[id] = 1;
+            updateProductButton(product, cart[id]);
+            updateCartWidget();
+            persistCart();
+          }
+        });
+
+        // Plus/Minus via Event Delegation
+        product.addEventListener('click', function (event) {
+          if (event.target.classList.contains('plus')) {
+            cart[id] = (cart[id] || 0) + 1;
+            updateProductButton(product, cart[id]);
+            updateCartWidget();
+            persistCart();
+            event.stopPropagation();
+          } else if (event.target.classList.contains('minus')) {
+            cart[id] = Math.max((cart[id] || 0) - 1, 0);
+            updateProductButton(product, cart[id]);
+            updateCartWidget();
+            persistCart();
+            event.stopPropagation();
+          }
+        });
+      }
+    });
+
+    // Nach dem Setup aller Produkte: Wiederherstellen & UI angleichen
+    restoreCart();
+    document.querySelectorAll('.product[data-id]').forEach(product => {
+      const pid = product.getAttribute('data-id');
+      const qty = Number(cart[pid]) || 0;
+      updateProductButton(product, qty);
+    });
+    updateCartWidget();
+
+    // Order button: build the form and submit.
+    document.getElementById('order-button').addEventListener('click', function () {
+      buildPaypalForm();
+      clearCartStorage(); // Speicher nach Bestellung leeren
+      document.getElementById('paypal-form').submit();
+    });
+  </script>
+
 </body>
 
 </html>
